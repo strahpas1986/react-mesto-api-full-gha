@@ -9,6 +9,18 @@ const DEFAULT_CODE = 500;
 // Регулярное выражение для проверки адреса
 const LINK_REGEXP = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/im;
 
+// Переменная для CORS
+const ALLOWED_CORS = [
+  'http://mesto-sp.nomoredomains.monster',
+  'https://mesto-sp.nomoredomains.monster',
+  'http://130.193.42.213',
+  'https://130.193.42.213',
+  'http://localhost:3000',
+  'http://localhost:3001',
+];
+
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
 module.exports = {
   CREATE_CODE,
   BAD_REQUEST_CODE,
@@ -18,4 +30,6 @@ module.exports = {
   CONFLICT_CODE,
   DEFAULT_CODE,
   LINK_REGEXP,
+  ALLOWED_CORS,
+  DEFAULT_ALLOWED_METHODS,
 };

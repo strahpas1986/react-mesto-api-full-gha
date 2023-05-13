@@ -9,8 +9,9 @@ const signin = require('./singin');
 const signup = require('./singup');
 const notFound = require('./notFound');
 const auth = require('../middlewares/auth');
+const crashTest = require('./crashTest')
 
-rootRouter.use(requestLogger);
+rootRouter.use('/crash-test', crashTest);
 rootRouter.use('/signin', signin);
 rootRouter.use('/signup', signup);
 rootRouter.use('/users', auth, users);
