@@ -59,8 +59,6 @@ class Api {
     })
   }
 
-  //
-
   deleteInitialCards(_id) {
     return this._request(this._serverUrl + '/cards/' + _id, {
       method: "DELETE",
@@ -81,7 +79,7 @@ class Api {
       })
     }
   }
- 
+
   changeAvatar(avatar) {
     return this._request(this._serverUrl + '/users/me/avatar', {
       method: "PATCH",
