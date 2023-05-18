@@ -13,8 +13,8 @@ const LINK_REGEXP = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,}\.[a-zA-Z0-9()
 const ALLOWED_CORS = [
   'http://mesto-sp.nomoredomains.monster',
   'https://mesto-sp.nomoredomains.monster',
-  'http://130.193.42.213',
-  'https://130.193.42.213',
+  'http://84.201.142.51',
+  'https://84.201.142.51',
   'http://localhost:3000',
   'http://localhost:3001',
 ];
