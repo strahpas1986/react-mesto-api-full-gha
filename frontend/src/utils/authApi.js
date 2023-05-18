@@ -22,5 +22,5 @@ export function authorize({ email, password }) {
 }
 
 export function getContent(token) {
-  return makeRequest("/users/me", "GET", undefined, token);
+  return makeRequest("/users/me", "GET");
 }
