@@ -2,10 +2,7 @@ const BASE_URL = "http://api.mesto-sp.nomoredomains.monster";
 
 function makeRequest(url, method, body, token) {
   const headers = { "Content-Type": "application/json" };
-  const config = { method, headers };
-  if (token !== undefined) {
-    headers["Authorization"] = `Bearer ${token}`;
-  }
+  const config = { method, headers, credentials: "include" };
   if (body !== undefined) {
     config.body = JSON.stringify(body);
   }
