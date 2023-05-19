@@ -1,6 +1,6 @@
-const BASE_URL = "http://api.mesto-sp.nomoredomains.monster";
+const BASE_URL = "https://auth.nomoreparties.co";
 
-function makeRequest(url, method, body, token) {
+function makeRequest(url, method, body) {
   const headers = { "Content-Type": "application/json" };
   const config = { method, headers, credentials: "include" };
   if (body !== undefined) {
