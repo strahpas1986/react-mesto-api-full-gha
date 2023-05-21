@@ -14,13 +14,13 @@ function makeRequest(url, method, body) {
 }
 
 export function register({ email, password }) {
-  return makeRequest("/signup", "POST", { password, email });
+  return makeRequest("/signup", "POST", { email, password });
 }
 
 export function authorize({ email, password }) {
-  return makeRequest("/signin", "POST", { password, email });
+  return makeRequest("/signin", "POST", { email, password });
 }
 
-export function getContent(token) {
+export function getContent() {
   return makeRequest("/users/me", "GET");
 }
