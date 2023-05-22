@@ -94,8 +94,6 @@ class Api {
 const api = new Api({
   serverUrl: "http://api.mesto-sp.nomoredomains.monster",
   headers: {
-    authorization: "b185719c-abff-4277-81cb-becf6d2eb2bf",
-    credentials: "include",
     "Content-Type": "application/json",
   },
 });
