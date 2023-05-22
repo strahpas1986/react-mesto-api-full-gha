@@ -37,6 +37,7 @@ class Api {
 
   editProfileInfo(userData) {
     return this._request(this._serverUrl + '/users/me', {
+      credentials: 'include',
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -50,6 +51,7 @@ class Api {
 
   addNewCard(cardData) {
     return this._request(this._serverUrl + "/cards", {
+      credentials: 'include',
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
@@ -61,6 +63,7 @@ class Api {
 
   deleteInitialCards(_id) {
     return this._request(this._serverUrl + '/cards/' + _id, {
+      credentials: 'include',
       method: "DELETE",
       headers: this._headers
     })
@@ -69,11 +72,13 @@ class Api {
   likeCardStatus(_id, isLiked) {
     if (isLiked) {
       return this._request(this._serverUrl + '/cards/' + _id + '/likes', {
+        credentials: 'include',
         method: "DELETE",
         headers: this._headers
       })
     } else {
       return this._request(this._serverUrl + '/cards/' + _id + '/likes', {
+        credentials: 'include',
         method: "PUT",
         headers: this._headers
       })
@@ -82,6 +87,7 @@ class Api {
 
   changeAvatar(avatar) {
     return this._request(this._serverUrl + '/users/me/avatar', {
+      credentials: 'include',
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({

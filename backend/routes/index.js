@@ -1,8 +1,5 @@
 const rootRouter = require('express').Router();
 
-// подключение логирования
-const { requestLogger, errorLogger } = require('./middlewares/logger');
-
 const users = require('./users');
 const cards = require('./cards');
 const signin = require('./singin');
@@ -17,9 +14,5 @@ rootRouter.use('/signup', signup);
 rootRouter.use('/users', auth, users);
 rootRouter.use('/cards', auth, cards);
 rootRouter.use('*', auth, notFound);
-
-app.use(errorLogger); // подключаем логгер ошибок
-
-app.use(errors()); // обработчик ошибок celebrate переподключить
 
 module.exports = rootRouter;
