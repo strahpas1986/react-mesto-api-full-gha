@@ -1,7 +1,11 @@
 const BASE_URL = "http://api.mesto-sp.nomoredomains.monster";
+// const BASE_URL = "http://localhost:3002";
 
-function makeRequest(url, method, body) {
-  const headers = { "Content-Type": "application/json" };
+function makeRequest(url, method, body, token) {
+  const headers = {
+    "Content-Type": "application/json",
+    "Authorization" : `Bearer ${token}`
+  };
   const config = { method, headers, credentials: "include" };
   if (body !== undefined) {
     config.body = JSON.stringify(body);
