@@ -1,10 +1,9 @@
-const BASE_URL = "http://api.mesto-sp.nomoredomains.monster";
-// const BASE_URL = "http://localhost:3002";
+// const BASE_URL = "http://api.mesto-sp.nomoredomains.monster";
+const BASE_URL = "http://localhost:3002";
 
-function makeRequest(url, method, body, token) {
+function makeRequest(url, method, body) {
   const headers = {
-    "Content-Type": "application/json",
-    "Authorization" : `Bearer ${token}`
+    "Content-Type": "application/json"
   };
   const config = { method, headers, credentials: "include" };
   if (body !== undefined) {

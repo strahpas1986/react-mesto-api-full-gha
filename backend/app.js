@@ -13,7 +13,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 // const cors = require('./middlewares/cors');
 const cors = require('cors');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 const DATABASE = process.env.DATABASE || 'mongodb://localhost:27017/mestodb';
 
 const app = express();
@@ -47,5 +47,5 @@ app.use(errorLogger);
 app.use(validationErrors());
 app.use(errors);
 
-app.listen(PORT);
-// app.listen(3002)
+// app.listen(PORT);
+app.listen(3002)

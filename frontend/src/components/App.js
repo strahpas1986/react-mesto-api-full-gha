@@ -38,6 +38,7 @@ function App() {
   const [isDeleteCardPopupOnLoading, setDeleteCardPopupButtonText] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loggedIn &&
@@ -69,7 +70,7 @@ function App() {
     }, [isOpen]);
 
   const cbRegister = useCallback( async({ email, password}) => {
-
+    setLoading(true);
     try {
       const data = await authApi.register({ email, password});
       if (data) {
@@ -84,14 +85,15 @@ function App() {
       setInfoTooltipTitle('Что-то пошло не так! Попробуйте ещё раз.');
     } finally {
       handleInfoTooltip();
+      setLoading(false);
     }
   }, [navigate]);
 
   const cbAuthorize = useCallback(async ({ email, password }) => {
+    setLoading(true);
     try {
       const data = await authApi.authorize({ email, password });
       if (data) {
-        // localStorage.setItem("token", data.token);
         setLoggedIn(true);
         setEmail(email);
         navigate('/', { replace: true });
@@ -101,14 +103,12 @@ function App() {
       handleInfoTooltip();
       setInfoTooltipImage(error);
       setInfoTooltipTitle('Что-то пошло не так! Попробуйте ещё раз.');
+    } finally {
+        setLoading(false);
     }
   }, [navigate]);
 
   const cbTokenCheck = useCallback(async () => {
-    // const jwt = localStorage.getItem('token');
-    // if (jwt) {
-
-    // }
     try {
       const user = await authApi.getContent();
       if (!user) {
@@ -123,7 +123,6 @@ function App() {
   }, [navigate]);
 
   const cbLogOut = useCallback(() => {
-    // localStorage.removeItem('token');
     setLoggedIn(false);
     setEmail('');
     navigate('/sign-in', { replace: true });
@@ -276,7 +275,10 @@ function App() {
               path="/sign-in"
               element={
                 <>
-                  <Login onLogin={cbAuthorize} />
+                  <Login
+                    onLogin={cbAuthorize}
+                    // onLoading={loading}
+                  />
                 </>
               }
             />
