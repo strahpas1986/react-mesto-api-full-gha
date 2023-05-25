@@ -91,7 +91,7 @@ function App() {
     try {
       const data = await authApi.authorize({ email, password });
       if (data.token) {
-        localStorage.setItem("token", data.token);
+        // localStorage.setItem("token", data.token);
         setLoggedIn(true);
         setEmail(email);
         navigate('/', { replace: true });
@@ -105,10 +105,10 @@ function App() {
   }, [navigate]);
 
   const cbTokenCheck = useCallback(async () => {
-    const jwt = localStorage.getItem('token');
-    if (jwt) {
+    // const jwt = localStorage.getItem('token');
+    // if (jwt) {
       try {
-        const user = await authApi.getContent(jwt);
+        const user = await authApi.getContent();
         if (!user) {
           throw new Error("Данные пользователя отсутствуют");
         }
@@ -118,11 +118,11 @@ function App() {
       } catch (err) {
         console.error(err);
       }
-    }
-  }, []);
+    // }
+  }, [navigate]);
 
   const cbLogOut = useCallback(() => {
-    localStorage.removeItem('token');
+    // localStorage.removeItem('token');
     setLoggedIn(false);
     setEmail('');
     navigate('/sign-in', { replace: true });
