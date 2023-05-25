@@ -38,7 +38,7 @@ function App() {
   const [isDeleteCardPopupOnLoading, setDeleteCardPopupButtonText] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loggedIn &&
