@@ -1,11 +1,11 @@
-const BASE_URL = "https://api.mesto-sp.nomoredomains.monster";
-// const BASE_URL = "http://localhost:3002";
+const BASE_URL = "https://auth.nomoreparties.co";
 
-function makeRequest(url, method, body) {
-  const headers = {
-    "Content-Type": "application/json"
-  };
-  const config = { method, headers, credentials: "include" };
+function makeRequest(url, method, body, token) {
+  const headers = { "Content-Type": "application/json" };
+  const config = { method, headers };
+  if (token !== undefined) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
   if (body !== undefined) {
     config.body = JSON.stringify(body);
   }
@@ -17,13 +17,13 @@ function makeRequest(url, method, body) {
 }
 
 export function register({ email, password }) {
-  return makeRequest("/signup", "POST", { email, password });
+  return makeRequest("/signup", "POST", { password, email });
 }
 
 export function authorize({ email, password }) {
-  return makeRequest("/signin", "POST", { email, password });
+  return makeRequest("/signin", "POST", { password, email });
 }
 
-export function getContent() {
-  return makeRequest("/users/me", "GET");
+export function getContent(token) {
+  return makeRequest("/users/me", "GET", undefined, token);
 }
