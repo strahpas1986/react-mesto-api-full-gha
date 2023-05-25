@@ -81,7 +81,7 @@ class Api {
       })
     }
   }
- 
+
   changeAvatar(avatar) {
     return this._request(this._serverUrl + '/users/me/avatar', {
       method: "PATCH",
@@ -94,9 +94,8 @@ class Api {
 }
 
 const api = new Api({
-  serverUrl: "https://mesto.nomoreparties.co/v1/cohort-59",
+  serverUrl: "https://api.mesto-sp.nomoredomains.monster",
   headers: {
-    authorization: "b185719c-abff-4277-81cb-becf6d2eb2bf",
     "Content-Type": "application/json",
   },
 });
