@@ -1,4 +1,5 @@
 const BASE_URL = "https://api.mesto-sp.nomoredomains.monster";
+// const BASE_URL = "http://localhost:3002";
 
 function makeRequest(url, method, body) {
   const headers = { "Content-Type": "application/json" };
