@@ -93,7 +93,7 @@ function App() {
       if (data.token) {
         // localStorage.setItem("token", data.token);
         setLoggedIn(true);
-        setEmail(email);
+        setEmail(data.email);
         navigate('/', { replace: true });
       }
     } catch (err) {
@@ -120,10 +120,10 @@ function App() {
 
   const cbLogOut = useCallback(async () => {
     try {
-      const data = await authApi.logOut();
+      const data = await authApi.logout();
       if (data) {
         setLoggedIn(false);
-        setEmail('');
+        setEmail("");
         navigate("/sign-in", { replace: true });
       }
     } catch (err) {
