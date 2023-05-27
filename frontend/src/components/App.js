@@ -105,9 +105,7 @@ function App() {
   }, [navigate]);
 
   const cbTokenCheck = useCallback(async () => {
-    // const jwt = localStorage.getItem('token');
-    // if (jwt) {
-      try {
+    try {
         const user = await authApi.getContent();
         if (!user) {
           throw new Error("Данные пользователя отсутствуют");
@@ -118,15 +116,7 @@ function App() {
       } catch (err) {
         console.error(err);
       }
-    // }
   }, [navigate]);
-
-  // const cbLogOut = useCallback(() => {
-  //   // localStorage.removeItem('token');
-  //   setLoggedIn(false);
-  //   setEmail('');
-  //   navigate('/sign-in', { replace: true });
-  // }, [navigate]);
 
   const cbLogOut = useCallback(async () => {
     try {
