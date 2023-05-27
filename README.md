@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 130.193.42.213
+IP-адрес 84.201.142.51
 
 Frontend https://mesto-sp.nomoredomains.monster
 
