@@ -102,8 +102,8 @@ class Api {
 }
 
 const api = new Api({
-  // serverUrl: "https://api.mesto-sp.nomoredomains.monster",
-  serverUrl: "http://localhost:3002",
+  serverUrl: "https://api.mesto-sp.nomoredomains.monster",
+  // serverUrl: "http://localhost:3002",
   headers: {
     "Content-Type": "application/json",
   },
