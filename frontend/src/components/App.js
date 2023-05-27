@@ -112,7 +112,7 @@ function App() {
         if (!user) {
           throw new Error("Данные пользователя отсутствуют");
         }
-        setEmail(user.data.email);
+        setEmail(user.email);
         setLoggedIn(true);
         navigate("/", { replace: true });
       } catch (err) {
@@ -121,11 +121,24 @@ function App() {
     // }
   }, [navigate]);
 
-  const cbLogOut = useCallback(() => {
-    // localStorage.removeItem('token');
-    setLoggedIn(false);
-    setEmail('');
-    navigate('/sign-in', { replace: true });
+  // const cbLogOut = useCallback(() => {
+  //   // localStorage.removeItem('token');
+  //   setLoggedIn(false);
+  //   setEmail('');
+  //   navigate('/sign-in', { replace: true });
+  // }, [navigate]);
+
+  const cbLogOut = useCallback(async () => {
+    try {
+      const data = await authApi.logOut();
+      if (data) {
+        setLoggedIn(false);
+        setEmail('');
+        navigate("/sign-in", { replace: true });
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }, [navigate]);
 
   useEffect(() => {

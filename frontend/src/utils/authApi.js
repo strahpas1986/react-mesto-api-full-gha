@@ -1,5 +1,5 @@
-const BASE_URL = "https://api.mesto-sp.nomoredomains.monster";
-// const BASE_URL = "http://localhost:3002";
+// const BASE_URL = "https://api.mesto-sp.nomoredomains.monster";
+const BASE_URL = "http://localhost:3002";
 
 function makeRequest(url, method, body) {
   const headers = { "Content-Type": "application/json" };
@@ -20,6 +20,10 @@ export function register({ email, password }) {
 
 export function authorize({ email, password }) {
   return makeRequest("/signin", "POST", { email, password });
+}
+
+export function logOut() {
+  return makeRequest("/users/me", "DELETE");
 }
 
 export function getContent() {
