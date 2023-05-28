@@ -6,6 +6,19 @@ const NOT_FOUND_CODE = 404;
 const CONFLICT_CODE = 409;
 const DEFAULT_CODE = 500;
 
+const ALLOWED_CORS = [
+    'http://mesto-sp.nomoredomains.monster',
+    'https://mesto-sp.nomoredomains.monster',
+    'http://api.mesto-sp.nomoredomains.monster',
+    'https://api.mesto-sp.nomoredomains.monster',
+    'http://84.201.142.51',
+    'https://84.201.142.51',
+    'http://localhost:3000',
+    'http://localhost:3001',
+];
+
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
 // Регулярное выражение для проверки адреса
 const LINK_REGEXP = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/im;
 
@@ -18,4 +31,6 @@ module.exports = {
   CONFLICT_CODE,
   DEFAULT_CODE,
   LINK_REGEXP,
+  ALLOWED_CORS,
+  DEFAULT_ALLOWED_METHODS,
 };
