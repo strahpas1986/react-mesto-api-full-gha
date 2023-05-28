@@ -8,6 +8,7 @@ const {
   createUser,
   updateUserInfo,
   updateUserAvatar,
+  logout
 } = require('../controllers/users');
 
 const { LINK_REGEXP } = require('../utils/constants');
@@ -15,6 +16,8 @@ const { LINK_REGEXP } = require('../utils/constants');
 router.get('/', getAllUsers);
 
 router.get('/me', getUserInfo);
+
+router.delete('/me', logout);
 
 router.get('/:userId', celebrate({
   params: Joi.object().keys({
@@ -36,5 +39,7 @@ router.patch('/me/avatar', celebrate({
     avatar: Joi.string().required().regex(LINK_REGEXP),
   }),
 }), updateUserAvatar);
+
+
 
 module.exports = router;

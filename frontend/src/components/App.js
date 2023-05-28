@@ -90,10 +90,9 @@ function App() {
   const cbAuthorize = useCallback(async ({ email, password }) => {
     try {
       const data = await authApi.authorize({ email, password });
-      if (data.token) {
-        // localStorage.setItem("token", data.token);
+      if (data) {
         setLoggedIn(true);
-        setEmail(data.email);
+        setEmail(email);
         navigate('/', { replace: true });
       }
     } catch (err) {

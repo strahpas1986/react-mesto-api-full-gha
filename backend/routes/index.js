@@ -17,8 +17,4 @@ rootRouter.use('/users', auth, users);
 rootRouter.use('/cards', auth, cards);
 rootRouter.use('*', notFound);
 
-// app.use(errorLogger); // подключаем логгер ошибок
-
-// app.use(errors()); // обработчик ошибок celebrate переподключить
-
 module.exports = rootRouter;
