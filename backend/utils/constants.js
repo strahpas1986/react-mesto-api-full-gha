@@ -7,14 +7,14 @@ const CONFLICT_CODE = 409;
 const DEFAULT_CODE = 500;
 
 const ALLOWED_CORS = [
-    '//mesto-sp.nomoredomains.monster',
-    '//mesto-sp.nomoredomains.monster',
-    '//api.mesto-sp.nomoredomains.monster',
-    '//api.mesto-sp.nomoredomains.monster',
-    '//84.201.142.51',
-    '//84.201.142.51',
-    '//localhost:3000',
-    '//localhost:3001',
+    'https://mesto-sp.nomoredomains.monster',
+    'http://mesto-sp.nomoredomains.monster',
+    'https://api.mesto-sp.nomoredomains.monster',
+    'http://api.mesto-sp.nomoredomains.monster',
+    'https://84.201.142.51',
+    'http://84.201.142.51',
+    'http://localhost:3000',
+    'http://localhost:3001',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
