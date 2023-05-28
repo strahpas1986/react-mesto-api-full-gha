@@ -8,7 +8,6 @@ const validationErrors = require('celebrate').errors;
 
 const rootRouter = require('./routes/index');
 
-const limiter = require('./middlewares/limiter');
 const errors = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 // const cors = require('./middlewares/cors');
@@ -24,7 +23,6 @@ mongoose.connect(DATABASE);
 app.use(express.json());
 app.use(cookieParser());
 app.use(helmet());
-app.use(limiter);
 app.use(cors({
   origin: [
     '//mesto-sp.nomoredomains.monster',
