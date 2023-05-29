@@ -10,7 +10,6 @@ const rootRouter = require('./routes/index');
 
 const errors = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-// const cors = require('./middlewares/cors');
 const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const DATABASE = process.env.DATABASE || 'mongodb://localhost:27017/mestodb';
@@ -36,7 +35,6 @@ app.use(cors({
   method: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   credentials: true,
 }));
-// app.use(cors);
 
 app.use(requestLogger);
 
