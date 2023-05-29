@@ -10,7 +10,6 @@ const rootRouter = require('./routes/index');
 
 const errors = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-// const cors = require('./middlewares/cors');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
